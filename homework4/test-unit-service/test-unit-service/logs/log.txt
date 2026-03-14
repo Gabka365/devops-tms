@@ -1,0 +1,2 @@
+2026-03-13 22:19:34.575 +03:00 [INF] App Manager worked at 13.03.2026 22:19:34 with Id Entity 3
+2026-03-13 23:29:44.529 +03:00 [INF] App Manager worked at 13.03.2026 23:29:44 with Id Entity 2

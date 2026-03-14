@@ -1,0 +1,7 @@
+/var/log/dotnet-app.service/log.txt {
+    daily
+    rotate 10
+    missingok
+    create 0640 admin admin
+    compress
+}
