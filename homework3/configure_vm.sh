@@ -1,18 +1,48 @@
-#!/bin/bash
+#!/usr/bin/bash
+
+# --------- Variables examples ---------
+
+# HOSTNAME="hostname"
+# TIMEZONE="Europe/Minsk"
+# USER1="user1"
+# USER2="user2"
+# GROUP1="group1"
+# GROUP2="group2"
+# IP_ADDRESS="192.168.100.80/24"
+# IP_GATEWAY="192.168.100.1"
 
 
-# --------- Variables ---------
-HOSTNAME="testhost"
-TIMEZONE="Europe/Minsk"
-USER1="user1"
-USER2="user2"
-GROUP1="group1"
-GROUP2="group2"
-IP_ADDRESS="192.168.100.80/24"
-IP_GATEWAY="192.168.100.1"
+# --------- Enter variables ---------
 
+set_host_variables() {
+    echo "Enter hostname:"
+    read HOSTNAME
 
-# --------- Functions (virtual maschine components) ---------
+    echo "Enter timezone:"
+    read TIMEZONE
+
+    echo "Enter ip address:"
+    read IP_ADDRESS
+
+    echo "Enter ip gateway:"
+    read IP_GATEWAY
+}
+
+set_users_variables() {
+    echo "Enter user 1:"
+    read USER1
+
+    echo "Enter user 2:"
+    read USER2
+
+    echo "Enter group 1:"
+    read GROUP1
+
+    echo "Enter group 2:"
+    read GROUP2
+}
+
+# --------- Configure virtual maschine components ---------
 set_hostname() {
     sudo hostnamectl set-hostname $HOSTNAME
 }
@@ -121,6 +151,7 @@ setup_ssh() {
 }
 
 setup_host(){
+    set_host_variables
     set_hostname
     set_timezone
     setup_ntp_server
@@ -128,6 +159,7 @@ setup_host(){
     setup_firewall
 }
 setup_users(){
+    set_users_variables
     set_accounts
     setup_permissions
     setup_personal_access
